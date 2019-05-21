@@ -117,7 +117,7 @@ plot(res$fpr,res$tpr,xlab="FPR", ylab="TPR", type='b')
 abline(a=0, b=1, lty=2)
 ```
 
-![](AUC_files/figure-markdown_github/unnamed-chunk-3-1.png) The diagonal
+![](images/AUC_files/figure-markdown_github/unnamed-chunk-3-1.png) The diagonal
 line represent the Null model, i.e. a random prediction of y\_pred.
 
 How can we find the AUC? Note that the size of horizontal and vertical
@@ -177,7 +177,7 @@ legend("topleft",
 )
 ```
 
-![](AUC_files/figure-markdown_github/unnamed-chunk-6-1.png) The Gini
+![](images/AUC_files/figure-markdown_github/unnamed-chunk-6-1.png) The Gini
 coefficient is the the ratio $Gini=\\frac{A}{A+B}=2A$ (because
 *A* + *B* = 0.5)
 
@@ -214,7 +214,7 @@ legend("topleft",
 )
 ```
 
-![](AUC_files/figure-markdown_github/unnamed-chunk-8-1.png) The relative
+![](images/AUC_files/figure-markdown_github/unnamed-chunk-8-1.png) The relative
 Gini coefficient is:
 
 ``` r
