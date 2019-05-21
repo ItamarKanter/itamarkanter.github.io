@@ -9,8 +9,8 @@ name: Itamar Kanter
 description: machine and deep learning enthusiaste
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
-avatar: https://github.com/ItamarKanter/itamarkanter.github.io/blob/master/images/my_pic.png?raw=true
-
+# avatar: https://raw.githubusercontent.com/ItamarKanter/itamarkanter.github.io/blob/master/images/my_pic.png
+avatar: https://raw.githubusercontent.com/barryclark/jekyll-now/master/images/jekyll-logo.png
 
 # Flags below are optional
 #
