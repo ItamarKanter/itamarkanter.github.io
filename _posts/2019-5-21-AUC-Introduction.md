@@ -177,7 +177,7 @@ legend("topleft",
 )
 ```
 
-![](images/AUC_files/figure-markdown_github/unnamed-chunk-6-1.png) The Gini
+![](../images/AUC_files/figure-markdown_github/unnamed-chunk-6-1.png) The Gini
 coefficient is the the ratio $Gini=\\frac{A}{A+B}=2A$ (because
 *A* + *B* = 0.5)
 
@@ -214,7 +214,7 @@ legend("topleft",
 )
 ```
 
-![](images/AUC_files/figure-markdown_github/unnamed-chunk-8-1.png) The relative
+![](../images/AUC_files/figure-markdown_github/unnamed-chunk-8-1.png) The relative
 Gini coefficient is:
 
 ``` r
