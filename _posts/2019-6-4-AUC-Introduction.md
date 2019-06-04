@@ -118,7 +118,7 @@ abline(a=0, b=1, lty=2)
 ```
 
 ![](images/AUC_files/figure-markdown_github/unnamed-chunk-3-1.png) The diagonal
-line represent the Null model, i.e. a random prediction of y\_pred.
+line represents the Null model, i.e. a random prediction of y\_pred.
 
 How can we find the AUC? Note that the size of horizontal and vertical
 steps between adjacent point is equal. The vertical step size is simply
