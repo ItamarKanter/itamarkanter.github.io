@@ -1,5 +1,7 @@
 ---
 layout: post
+mathjax: true
+comments: true
 title: "AUC- Introduction"
 date: 2019-06-04
 categories: blogging
