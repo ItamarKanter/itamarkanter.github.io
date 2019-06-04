@@ -7,10 +7,6 @@ date: 2019-06-04
 categories: blogging
 tags: R AUC
 ---
-
-Brief introduction
-==================
-
 AUC (Area Under the Curve) is a common name to depict the area under a
 function. Specifically in the fields of statistics and machine learning
 this term refer to the area under the Receiver Operator Characteristic
@@ -127,8 +123,8 @@ plot(res$fpr,res$tpr,xlab="FPR", ylab="TPR", type='b')
 abline(a=0, b=1, lty=2)
 ```
 
-![](/images/AUC_files/figure-markdown_github/unnamed-chunk-3-1.png) The diagonal
-line represents the Null model, i.e. a random prediction of y\_pred.
+![](/images/AUC_files/figure-markdown_github/unnamed-chunk-3-1.png) 
+The diagonal line represents the Null model, i.e. a random prediction of y\_pred.
 
 How can we find the AUC? Note that the size of horizontal and vertical
 steps between adjacent point is equal. The vertical step size is simply
