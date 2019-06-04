@@ -12,8 +12,8 @@ function. Specifically in the fields of statistics and machine learning
 this term refer to the area under the Receiver Operator Characteristic
 (ROC), which is the curve defined by the pairs (FPR(t), TPR(t)) at
 different threshold (t) levels. Where FPR stands for False Positive
-Rate, and TPR for True Positive Rate. $FPR=\\frac{FP}{FP+TN}$ and
-$TPR=\\frac{TP}{TP+FN}$,
+Rate, and TPR for True Positive Rate. $$FPR=\frac{FP}{FP+TN}$$ and
+$$TPR=\frac{TP}{TP+FN}$$,
 
 TP- True positive, The model predicted positive, the example was
 positive
@@ -31,7 +31,7 @@ So, the TPR is the fraction of correct positive predictions out of all
 the positive examples (also known as recall), and the FPR is the
 fraction of incorrect positive prediction out of all negative examples.
 The ROC is monotonically increase function and constrained in
-*T**P**R*, *F**P**R* ∈ \[0, 1\]. Let’s dive in with a simple example we
+$$TPR, FPR\in[0,1]$$. Let’s dive in with a simple example we
 will create in R.
 
 ``` r
@@ -97,11 +97,7 @@ print(FPR)
 
     ## [1] 0.2857143
 
-However changing the threshold to *t* = 0.51 or *t* = 0.49 won’t change
-the results, so it make sense to calculate the TPR(t), FPR(t) for
-*t* ∈ {0, *y*<sub>*p**r**e**d*</sub>} (I add 0 to include the extreme
-point of the curve). We can implement this in a simple function and a
-plot the ROC
+However changing the threshold to $$t=0.51$$ or $$t=0.49$$ won't change the results, so it make sense to calculate the TPR(t), FPR(t) for  $$t\in\{0, y_{pred}\}$$ (I add 0  to include the extreme point of the curve). We can implement this in a simple function and a plot the ROC
 
 ``` r
 fpr_tpr_t <- function(y_pred, y_true){
@@ -123,13 +119,12 @@ plot(res$fpr,res$tpr,xlab="FPR", ylab="TPR", type='b')
 abline(a=0, b=1, lty=2)
 ```
 
-![](/images/AUC_files/figure-markdown_github/unnamed-chunk-3-1.png) 
-The diagonal line represents the Null model, i.e. a random prediction of y\_pred.
+![](/images/AUC_files/figure-markdown_github/unnamed-chunk-3-1.png)  
+The diagonal line represents the Null model, i.e. a random prediction of $$y_{pred}$$.
 
 How can we find the AUC? Note that the size of horizontal and vertical
 steps between adjacent point is equal. The vertical step size is simply
-$\\frac{1}{\\sum{I(y\_{true}=1)}}$ and the horizontal step size is
-$\\frac{1}{\\sum{I(y\_{true}=0)}}$. In our toy example the AUC is :
+$$\frac{1}{\sum{I(y_{true}=1)}}$$ and the horizontal step size is $$\frac{1}{\sum{I(y_{true}=0)}}$$. In our toy example the AUC is :
 
 ``` r
 1-(1/sum(as.logical(df$y_true))*1/sum(!as.logical(df$y_true))*3)
@@ -162,7 +157,7 @@ measure statistical dispersion, intend to measure the inequality in
 wealth or income of a population. The Gini coefficient is determine by
 plotting the Lorenz curve, which is graph of the cumulative share of
 persons vs. the cumulative share of wealth. In our case, you can switch
-persons with samples, and wealth with positive predictions (*y* = 1).
+persons with samples, and wealth with positive predictions ($$y=1$$).
 
 ``` r
 lorenz_curve <- function(pred, y){
@@ -183,9 +178,9 @@ legend("topleft",
 )
 ```
 
-![](/images/AUC_files/figure-markdown_github/unnamed-chunk-6-1.png) The Gini
-coefficient is the the ratio $Gini=\\frac{A}{A+B}=2A$ (because
-*A* + *B* = 0.5)
+![](/images/AUC_files/figure-markdown_github/unnamed-chunk-6-1.png)  
+The Gini coefficient is the the ratio $$Gini=\frac{A}{A+B}=2A$$ (because $$A+B=0.5$$)
+
 
 ``` r
 midPoints <- function(x){
@@ -220,8 +215,8 @@ legend("topleft",
 )
 ```
 
-![](/images/AUC_files/figure-markdown_github/unnamed-chunk-8-1.png) The relative
-Gini coefficient is:
+![](/images/AUC_files/figure-markdown_github/unnamed-chunk-8-1.png)  
+The relative Gini coefficient is:
 
 ``` r
 area_between_curves <- function(x, f1, f2){
@@ -239,8 +234,7 @@ print(Gini)
 
     ## [1] 0.75
 
-And we can find the AUC from the Gini coefficient by
-$AUC=\\frac{Gini+1}{2}$
+And we can find the AUC from the Gini coefficient by $$AUC=\frac{Gini+1}{2}$$
 
 ``` r
 AUC = (Gini+1)/2
@@ -258,8 +252,7 @@ non parametric statistic test. It’s check whether a randomly selected
 sample from one set will be greater than randomly selected sample from a
 second set. To obtain the Mann-Whitney U statistic we simply aggregate
 the two sets and rank them. The U statistics is defined to be
-$U\_1=R\_1 - \\frac{n\_1(n\_1+1)}{2}$, where *R*<sub>1</sub> is the sum
-of ranks of samples from the first set.
+$$U_1=R_1 - \frac{n_1(n_1+1)}{2}$$, where $$R_1$$ is the sum of ranks of samples from the first set.
 
 ``` r
 U_stat <- function(labels, score){
@@ -273,7 +266,7 @@ print(U_stat(df$y_true, df$y_pred))
 
     ## [1] 21
 
-And the relation to AUC is $AUC=\\frac{U\_1}{n\_1n\_2}$
+And the relation to AUC is $$AUC=\frac{U_1}{n_1n_2}$$
 
 ``` r
 n1 = sum(df$y_true==1)
@@ -283,7 +276,7 @@ print(AUC)
 ```
 
     ## [1] 0.875
-
+4
 AUC and the Kendall rank correlation coefficient (or how many swaps we need to order our predictions to fit the true outcome)
 -----------------------------------------------------------------------------------------------------------------------------
 
